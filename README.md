@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="dark.svg">
-  <img src="dark.svg" alt="Sarvajith Sankar" width="100%">
+  <img src="./dark.svg" alt="Sarvajith Sankar" width="100%">
 </picture>
 
 ---
