@@ -12,3 +12,10 @@
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=sarvajithsankar&theme=merko&hide_border=true&background=0D1117&ring=00FFAA&fire=00FFAA&currStreakLabel=00FFAA" width="100%"/>
 </p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sarvajithsankar/sarvajithsankar/output/snake-dark.svg">
+    <img src="https://raw.githubusercontent.com/sarvajithsankar/sarvajithsankar/output/snake-light.svg" alt="contribution snake"/>
+  </picture>
+</p>
