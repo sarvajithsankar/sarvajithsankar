@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360">
+  <title>Sarvajith Sankar — AI and Software Engineering</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1020"/>
+      <stop offset="0.55" stop-color="#101736"/>
+      <stop offset="1" stop-color="#241243"/>
+    </linearGradient>
+    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#A78BFA">
+        <animate attributeName="offset" values="0.32;0.58;0.32" dur="5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#F472B6" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="cyan">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.5"/>
+      <stop offset="0.45" stop-color="#22D3EE" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violet">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.46"/>
+      <stop offset="0.45" stop-color="#8B5CF6" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pink">
+      <stop offset="0" stop-color="#EC4899" stop-opacity="0.38"/>
+      <stop offset="0.45" stop-color="#EC4899" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core" cx="0.35" cy="0.3" r="0.95">
+      <stop offset="0" stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </radialGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#FFFFFF" stroke-opacity="0.045"/>
+    </pattern>
+    <path id="star" d="M0 -5 L1.4 -1.4 L5 0 L1.4 1.4 L0 5 L-1.4 1.4 L-5 0 L-1.4 -1.4 Z"/>
+  </defs>
+
+  <rect x="1" y="1" width="1198" height="358" rx="18" fill="url(#bg)" stroke="url(#edge)" stroke-opacity="0.5"/>
+  <rect x="1" y="1" width="1198" height="358" rx="18" fill="url(#grid)"/>
+
+  <circle cx="170" cy="70" r="130" fill="url(#cyan)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 45 35; -20 55; 0 0" dur="18s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1010" cy="320" r="150" fill="url(#violet)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; -55 -40; 25 -65; 0 0" dur="22s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="620" cy="170" r="110" fill="url(#pink)">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 35 -25; -30 20; 0 0" dur="15s" repeatCount="indefinite"/>
+  </circle>
+
+  <use href="#star" x="545" y="64" fill="#67E8F9" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="2.6s" begin="-0.4s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star" x="760" y="40" fill="#C4B5FD" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="3.1s" begin="-1.6s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star" x="420" y="322" fill="#F0ABFC" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="2.9s" begin="-2.2s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star" x="1150" y="150" fill="#5EEAD4" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="3.4s" begin="-1s" repeatCount="indefinite"/>
+  </use>
+  <use href="#star" x="660" y="300" fill="#67E8F9" opacity="0">
+    <animate attributeName="opacity" values="0;1;0" dur="2.4s" begin="-0.8s" repeatCount="indefinite"/>
+  </use>
+
+  <g>
+    <path d="M930 180 L795 85" stroke="#3EE6C4" stroke-opacity="0.4" stroke-width="1.4" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.6s" repeatCount="indefinite"/>
+    </path>
+    <path d="M930 180 L1070 78" stroke="#A78BFA" stroke-opacity="0.4" stroke-width="1.4" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.9s" repeatCount="indefinite"/>
+    </path>
+    <path d="M930 180 L1085 262" stroke="#F472B6" stroke-opacity="0.4" stroke-width="1.4" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="2.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M930 180 L800 282" stroke="#60A5FA" stroke-opacity="0.4" stroke-width="1.4" stroke-dasharray="6 6">
+      <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="1.8s" repeatCount="indefinite"/>
+    </path>
+
+    <circle cx="930" cy="180" r="26" fill="none" stroke="#22D3EE" stroke-opacity="0.6">
+      <animate attributeName="r" values="26;58" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.55;0" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="795" cy="85" r="14" fill="#111827" stroke="#3EE6C4" stroke-width="1.6">
+      <animate attributeName="r" values="14;16;14" dur="3s" begin="-0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1070" cy="78" r="14" fill="#111827" stroke="#A78BFA" stroke-width="1.6">
+      <animate attributeName="r" values="14;16;14" dur="3.4s" begin="-1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1085" cy="262" r="14" fill="#111827" stroke="#F472B6" stroke-width="1.6">
+      <animate attributeName="r" values="14;16;14" dur="2.8s" begin="-2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="282" r="16" fill="#111827" stroke="#60A5FA" stroke-width="1.6">
+      <animate attributeName="r" values="16;18;16" dur="3.2s" begin="-0.9s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="930" cy="180" r="26" fill="url(#core)" stroke="#A5F3FC" stroke-opacity="0.6" stroke-width="1.4">
+      <animate attributeName="r" values="26;28;26" dur="3s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="#00FFAA">
+      <animateMotion path="M930 180 L795 85" dur="2.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="3" fill="#C4B5FD">
+      <animateMotion path="M930 180 L1070 78" dur="3.2s" begin="-1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="3" fill="#F9A8D4">
+      <animateMotion path="M930 180 L800 282" dur="2.9s" begin="-0.6s" repeatCount="indefinite"/>
+    </circle>
+
+    <g font-family="'JetBrains Mono','Fira Code',Consolas,monospace" font-size="10" fill="#9FB3C8" text-anchor="middle">
+      <text x="930" y="184">LLM</text>
+      <text x="795" y="115">MCP</text>
+      <text x="1070" y="108">TAVILY</text>
+      <text x="1085" y="292">ARXIV</text>
+      <text x="800" y="316">SYNTHESIZE</text>
+    </g>
+  </g>
+
+  <g font-family="'JetBrains Mono','Fira Code',Consolas,monospace">
+    <text x="60" y="104" font-size="13" letter-spacing="2" fill="#00FFAA">// AI &amp; SOFTWARE ENGINEERING</text>
+    <rect x="288" y="93" width="8" height="14" fill="#00FFAA">
+      <animate attributeName="opacity" values="1;0" keyTimes="0;0.5" dur="1s" calcMode="discrete" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <g font-family="'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif">
+    <text x="60" y="178" font-size="46" font-weight="800" letter-spacing="1" fill="url(#name)">SARVAJITH SANKAR</text>
+    <rect x="60" y="192" width="0" height="4" rx="2" fill="url(#edge)">
+      <animate attributeName="width" from="0" to="450" begin="0.4s" dur="1s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.2 0.8 0.2 1"/>
+    </rect>
+    <text x="60" y="234" font-size="15" fill="#C9D1D9">Autonomous AI agents &#183; LLM security middleware &#183; Backend systems</text>
+  </g>
+
+  <g font-family="'JetBrains Mono','Fira Code',Consolas,monospace" font-size="11" text-anchor="middle">
+    <rect x="60" y="276" width="88" height="22" rx="11" fill="#0D1117" fill-opacity="0.6" stroke="#A78BFA" stroke-width="1.2">
+      <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <text x="104" y="291" fill="#C4B5FD">LangGraph</text>
+    <rect x="158" y="276" width="48" height="22" rx="11" fill="#0D1117" fill-opacity="0.6" stroke="#22D3EE" stroke-width="1.2">
+      <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="4s" begin="-1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="182" y="291" fill="#67E8F9">MCP</text>
+    <rect x="216" y="276" width="74" height="22" rx="11" fill="#0D1117" fill-opacity="0.6" stroke="#2DD4BF" stroke-width="1.2">
+      <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="4s" begin="-2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="253" y="291" fill="#5EEAD4">FastAPI</text>
+    <rect x="300" y="276" width="68" height="22" rx="11" fill="#0D1117" fill-opacity="0.6" stroke="#60A5FA" stroke-width="1.2">
+      <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="4s" begin="-3s" repeatCount="indefinite"/>
+    </rect>
+    <text x="334" y="291" fill="#93C5FD">Python</text>
+  </g>
+
+  <text x="1140" y="342" text-anchor="end" font-family="'JetBrains Mono','Fira Code',Consolas,monospace" font-size="10" fill="#7D8590">github.com/sarvajithsankar</text>
+</svg>
