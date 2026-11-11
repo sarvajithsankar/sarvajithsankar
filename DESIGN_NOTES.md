@@ -1,0 +1,31 @@
+# Design Notes & Decisions
+
+- **Architecture Strategy**: Restyling existing portfolio into a cinematic dark editorial visual system while keeping all existing content, links, copy, and routes intact.
+- **Detected Stack**: Vanilla JS + modern ES modules, HTML5, CSS3 Custom Properties, Three.js (r128), Lenis smooth scroll, GSAP 3 + ScrollTrigger, Vite build tooling, GitHub Pages deployment.
+- **Fonts Loaded via Google Fonts**:
+  - Display: `Anton` (All caps, line-height: 0.88-0.92, letter-spacing: -0.005em)
+  - Accent Italic: `Instrument Serif` (Italic, sentence case, burnt orange `--orange: #f28a2e`)
+  - Body Serif: `Newsreader` (17-20px, line-height: 1.4-1.5, optical size on)
+  - Mono / UI: `IBM Plex Mono` (10-12px, uppercase, letter-spacing: 0.08-0.14em)
+- **Atmosphere Layers**:
+  - `--bg: #08090d` page surface (never pure black)
+  - WebGL particle canvas at `--z-canvas: 0`
+  - 8 drifting radial bokeh orbs at `--z-bokeh: 1`
+  - Content container at `--z-content: 2`
+  - Animated SVG `feTurbulence` grain overlay at `--z-chrome`
+  - Fixed persistent chrome at `--z-chrome: 50`
+  - Initial loading sequence at `--z-loader: 200`
+- **WebGL Particle Field**:
+  - Single fixed WebGL canvas with 48,000 points (desktop), 24,000 (tablet), 9,000 (mobile).
+  - Shape morphing between: Galaxy (Hero), Ring (Deck), Helix (Philosophy/About), Tower (Statement), Network (Architecture/Projects), Wave (Timeline), Galaxy (Contact/Footer).
+  - Interactive cursor repel in NDC coordinates, twinkle animation, and spark burst event listener (`particles:burst`).
+- **Card Deck Navigation**:
+  - Ring/spiral 3D card layout morphing through 4 stages (peek arc -> 360 circle around text -> smile fan row -> horizontal exit).
+  - 5 procedural marble noise texture families: Purple/Orange, Olive/Gold, Teal/Crimson, Blue/Red Silk, Brushed Chrome.
+  - Interactive 3D flip card anatomy with pointer tilt and GO navigation button.
+- **Instrument Panels**:
+  - Dark glass panel styling (`rgba(17, 20, 26, 0.86)`), cursor-following radial glow, status pills with pulsing dots.
+  - Interactive SVG architecture diagram with traveling message packets triggering particle bursts.
+  - Pinned scrubbed scene for TENET-AI / SSoC S5 defense pipeline with floating step card, segmented progress bar, and frame counter (`FRAME 0000 / 0960`).
+- **Pinned Horizontal Timeline**:
+  - Interactive sideways scrub with 2D canvas wavy particle river (1,400 points) and SVG vertical connectors that draw into place as milestones pass.
