@@ -50,21 +50,21 @@
   <text x="36" y="236" font-size="10.5" fill="#E5E7EB" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="600" letter-spacing="1.8">LANGUAGE MIX</text>
   <text x="964" y="236" font-size="8.5" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" text-anchor="end" fill-opacity="0.65" letter-spacing="0.8">BY BYTES · ORIGINAL REPOSITORIES</text>
   <g clip-path="url(#barClip)">
-    <rect x="36.00" y="252" width="480.45" height="12" fill="#6366F1"/>
-    <rect x="516.45" y="252" width="354.62" height="12" fill="#4C2A8A"/>
-    <rect x="871.07" y="252" width="36.74" height="12" fill="#22D3EE"/>
-    <rect x="907.81" y="252" width="22.79" height="12" fill="#8B5CF6"/>
-    <rect x="930.61" y="252" width="33.39" height="12" fill="#4C2A8A"/>
+    <rect x="36.00" y="252" width="328.16" height="12" fill="#6366F1"/>
+    <rect x="364.16" y="252" width="179.60" height="12" fill="#8B5CF6"/>
+    <rect x="543.75" y="252" width="175.02" height="12" fill="#22D3EE"/>
+    <rect x="718.78" y="252" width="111.04" height="12" fill="#6366F1"/>
+    <rect x="829.82" y="252" width="134.18" height="12" fill="#4C2A8A"/>
   </g>
   <circle cx="36" cy="286" r="3.2" fill="#6366F1"/>
-  <text x="46" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Jupyter Notebook  52%</text>
-  <circle cx="221" cy="286" r="3.2" fill="#4C2A8A"/>
-  <text x="231" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">TypeScript  38%</text>
+  <text x="46" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Jupyter Notebook  35%</text>
+  <circle cx="221" cy="286" r="3.2" fill="#8B5CF6"/>
+  <text x="231" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">JavaScript  19%</text>
   <circle cx="406" cy="286" r="3.2" fill="#22D3EE"/>
-  <text x="416" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">C++  4%</text>
-  <circle cx="591" cy="286" r="3.2" fill="#8B5CF6"/>
-  <text x="601" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">JavaScript  2%</text>
+  <text x="416" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">CSS  19%</text>
+  <circle cx="591" cy="286" r="3.2" fill="#6366F1"/>
+  <text x="601" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">HTML  12%</text>
   <circle cx="776" cy="286" r="3.2" fill="#4C2A8A"/>
-  <text x="786" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Other  4%</text>
+  <text x="786" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Other  14%</text>
   <text x="36" y="334" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" fill-opacity="0.55" letter-spacing="0.6">PUBLIC DATA ONLY · PRIVATE CONTRIBUTIONS NOT INCLUDED</text>
 </svg>
