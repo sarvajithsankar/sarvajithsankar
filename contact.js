@@ -1,112 +1,91 @@
-// CONTACT THREE.JS - Torus Ring
-const contactCanvas = document.getElementById('contact-canvas');
-const contactScene = new THREE.Scene();
-const contactCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const contactRenderer = new THREE.WebGLRenderer({ canvas: contactCanvas, alpha: true, antialias: true });
-contactRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-contactRenderer.setSize(window.innerWidth, window.innerHeight);
+/**
+ * Terminal & Direct Communication Console (Section 8 & Contact)
+ * - Interactive shell prompt with input
+ * - Quick-action command chips
+ * - Real contact routing & link dispatch
+ */
 
-const torusGeometry = new THREE.TorusGeometry(3, 0.02, 8, 80);
-const torusMaterial = new THREE.MeshBasicMaterial({
-    color: 0x6C63FF,
-    transparent: true,
-    opacity: 0.15
-});
-const torus = new THREE.Mesh(torusGeometry, torusMaterial);
-contactScene.add(torus);
+(function () {
+  'use strict';
 
-contactCamera.position.z = 5;
+  const terminalOutput = document.getElementById('terminal-output');
+  const terminalInput = document.getElementById('terminal-cmd-input');
+  const terminalForm = document.getElementById('terminal-form');
 
-let contactAnimating = true;
+  const commands = {
+    whoami: () => [
+      'Sarvajith Sankar — AI Engineer & ML Systems Developer',
+      'Dual-degree B.Tech CS @ VIT Vellore (2025-2029) × B.S. Data Science @ IIT Madras',
+      'Currently: AI Engineering Intern @ Maveric Systems (Autonomous Research Agents)'
+    ],
+    links: () => [
+      'GitHub:   <a class="terminal-link" href="https://github.com/sarvajithsankar" target="_blank" rel="noopener">https://github.com/sarvajithsankar</a>',
+      'LinkedIn: <a class="terminal-link" href="https://linkedin.com/in/sarvajithsankar" target="_blank" rel="noopener">https://linkedin.com/in/sarvajithsankar</a>',
+      'Email:    <a class="terminal-link" href="mailto:sarvajith2knot8@gmail.com">sarvajith2knot8@gmail.com</a>'
+    ],
+    stack: () => [
+      'Languages:  Python, C++17, Java, SQL, Shell',
+      'AI & ML:    LangGraph, LangChain, MCP, ChromaDB, PyTorch, Transformers, scikit-learn',
+      'Backend:    FastAPI, Flask, Redis, PostgreSQL, Docker, Kubernetes'
+    ],
+    focus: () => [
+      'Maveric Systems: LangGraph research agent with MCP tool calls (Tavily, Wikipedia, arXiv)',
+      'TENET-AI: SSoC Season 5 defensive security middleware protecting LLM endpoints',
+      'Sentinel-Vault: SIEM monitor in C++17 with AVL tree blacklist and RAID-1 vault storage'
+    ],
+    clear: () => {
+      if (terminalOutput) terminalOutput.innerHTML = '';
+      return [];
+    },
+    help: () => [
+      'Available commands: whoami, links, stack, focus, clear, help'
+    ]
+  };
 
-const contactObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        contactAnimating = entry.isIntersecting;
-    });
-}, { threshold: 0.1 });
-
-contactObserver.observe(contactCanvas);
-
-function animateContact() {
-    requestAnimationFrame(animateContact);
-    
-    if (!contactAnimating) return;
-    
-    torus.rotation.x += 0.001;
-    torus.rotation.y += 0.001;
-    
-    contactRenderer.render(contactScene, contactCamera);
-}
-
-animateContact();
-
-window.addEventListener('resize', () => {
-    contactCamera.aspect = window.innerWidth / window.innerHeight;
-    contactCamera.updateProjectionMatrix();
-    contactRenderer.setSize(window.innerWidth, window.innerHeight);
-});
-
-// TYPEWRITER EFFECT
-const terminalLines = document.querySelectorAll('.terminal-line');
-let typewriterStarted = false;
-
-const contactSectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !typewriterStarted) {
-            typewriterStarted = true;
-            startTypewriter();
-        }
-    });
-}, { threshold: 0.5 });
-
-contactSectionObserver.observe(document.querySelector('.contact'));
-
-function startTypewriter() {
-    // Line 1: $ whoami
-    typeLine(terminalLines[0].querySelector('.terminal-prompt'), '$ whoami', 80, () => {
-        // Line 2: lollipop (after 600ms)
-        setTimeout(() => {
-            typeLine(terminalLines[1].querySelector('.terminal-output'), 'lollipop', 80, () => {
-                // Line 3: $ links (after 400ms)
-                setTimeout(() => {
-                    typeLine(terminalLines[2].querySelector('.terminal-prompt'), '$ links', 80, () => {
-                        // Line 4: github link (after 400ms)
-                        setTimeout(() => {
-                            typeLine(terminalLines[3].querySelector('.terminal-link'), 'github → https://github.com/sarvajithsankar', 80, () => {
-                                // Line 5: linkedin link (after 400ms)
-                                setTimeout(() => {
-                                    typeLine(terminalLines[4].querySelector('.terminal-link'), 'linkedin → https://www.linkedin.com/in/sarvajithsankar/', 80, () => {
-                                        // Line 6: cursor (after 600ms)
-                                        setTimeout(() => {
-                                            terminalLines[5].style.opacity = '1';
-                                        }, 600);
-                                    });
-                                }, 400);
-                            });
-                        }, 400);
-                    });
-                }, 400);
-            });
-        }, 600);
-    });
-}
-
-function typeLine(element, text, speed, callback) {
-    element.textContent = '';
-    let i = 0;
-    
-    function type() {
-        if (i < text.length) {
-            element.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        } else if (callback) {
-            callback();
-        }
+  function printLine(html, isPrompt = false) {
+    if (!terminalOutput) return;
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    if (isPrompt) {
+      line.innerHTML = `<span class="terminal-prompt">$</span> <span class="terminal-cmd">${html}</span>`;
+    } else {
+      line.innerHTML = `<span class="terminal-out">${html}</span>`;
     }
-    
-    type();
-}
+    terminalOutput.appendChild(line);
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
 
-// Hide cursor initially
-terminalLines[5].style.opacity = '0';
+  window.runTerminalCommand = function (cmdStr) {
+    const cleanCmd = cmdStr.trim().toLowerCase();
+    printLine(cleanCmd, true);
+
+    if (commands[cleanCmd]) {
+      const outputLines = commands[cleanCmd]();
+      outputLines.forEach(l => printLine(l));
+    } else {
+      printLine(`command not found: ${cleanCmd}. Type <span class="terminal-prompt">help</span> for options.`);
+    }
+  };
+
+  if (terminalForm && terminalInput) {
+    terminalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = terminalInput.value;
+      if (val) {
+        window.runTerminalCommand(val);
+        terminalInput.value = '';
+      }
+    });
+  }
+
+  // Quick Action Chips in Terminal
+  document.querySelectorAll('.terminal-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const cmd = chip.dataset.cmd;
+      if (cmd) {
+        window.runTerminalCommand(cmd);
+      }
+    });
+  });
+
+})();
