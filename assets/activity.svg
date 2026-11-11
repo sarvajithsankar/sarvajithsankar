@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="360" viewBox="0 0 1000 360" role="img" aria-labelledby="activityTitle activityDesc">
+  <title id="activityTitle">GitHub activity and language mix for sarvajithsankar</title>
+  <desc id="activityDesc">Repository count, followers, contributions, streaks, commits, pull requests, issues, reviews, and most-used languages from public GitHub data.</desc>
+  <defs>
+    <radialGradient id="panelGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topRule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0"/>
+      <stop offset="0.3" stop-color="#8B5CF6" stop-opacity="0.7"/>
+      <stop offset="0.7" stop-color="#22D3EE" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="barClip">
+      <rect x="36" y="252" width="928" height="12" rx="6"/>
+    </clipPath>
+  </defs>
+  <rect width="1000" height="360" rx="14" fill="#080810" stroke="#24134A" stroke-width="1"/>
+  <ellipse cx="830" cy="58" rx="300" ry="170" fill="url(#panelGlow)"/>
+  <line x1="24" y1="1" x2="976" y2="1" stroke="url(#topRule)" stroke-width="2"/>
+  <text x="36" y="44" font-size="12" fill="#E5E7EB" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="600" letter-spacing="2.2">ACTIVITY &amp; CONTRIBUTIONS</text>
+  <text x="36" y="64" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" fill-opacity="0.7" letter-spacing="1.2">PUBLIC GITHUB DATA · REFRESHED BY ACTIONS</text>
+  <text x="964" y="44" font-size="12" fill="#8B5CF6" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" text-anchor="end" letter-spacing="2">2026</text>
+  <rect x="36" y="86" width="144" height="88" rx="10" fill="#0B1020" stroke="#24134A" stroke-width="1"/>
+  <text x="52" y="132" font-size="26" fill="#E5E7EB" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700">14</text>
+  <text x="52" y="152" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" letter-spacing="1.1">PUBLIC REPOS</text>
+  <rect x="52" y="162" width="28" height="2" rx="1" fill="#8B5CF6" fill-opacity="0.85"/>
+  <rect x="192" y="86" width="144" height="88" rx="10" fill="#0B1020" stroke="#24134A" stroke-width="1"/>
+  <text x="208" y="132" font-size="26" fill="#E5E7EB" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700">1</text>
+  <text x="208" y="152" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" letter-spacing="1.1">FOLLOWERS</text>
+  <rect x="208" y="162" width="28" height="2" rx="1" fill="#6366F1" fill-opacity="0.85"/>
+  <rect x="348" y="86" width="144" height="88" rx="10" fill="#0B1020" stroke="#24134A" stroke-width="1"/>
+  <text x="364" y="132" font-size="26" fill="#E5E7EB" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700">177</text>
+  <text x="364" y="152" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" letter-spacing="1.1">CONTRIBUTIONS 2026</text>
+  <rect x="364" y="162" width="28" height="2" rx="1" fill="#22D3EE" fill-opacity="0.85"/>
+  <rect x="504" y="86" width="144" height="88" rx="10" fill="#0B1020" stroke="#24134A" stroke-width="1"/>
+  <text x="520" y="132" font-size="26" fill="#E5E7EB" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700">1d</text>
+  <text x="520" y="152" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" letter-spacing="1.1">CURRENT STREAK</text>
+  <rect x="520" y="162" width="28" height="2" rx="1" fill="#A78BFA" fill-opacity="0.85"/>
+  <rect x="660" y="86" width="144" height="88" rx="10" fill="#0B1020" stroke="#24134A" stroke-width="1"/>
+  <text x="676" y="132" font-size="26" fill="#E5E7EB" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700">3d</text>
+  <text x="676" y="152" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" letter-spacing="1.1">LONGEST STREAK</text>
+  <rect x="676" y="162" width="28" height="2" rx="1" fill="#8B5CF6" fill-opacity="0.85"/>
+  <rect x="816" y="86" width="144" height="88" rx="10" fill="#0B1020" stroke="#24134A" stroke-width="1"/>
+  <text x="832" y="132" font-size="26" fill="#E5E7EB" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700">123</text>
+  <text x="832" y="152" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" letter-spacing="1.1">COMMITS 2026</text>
+  <rect x="832" y="162" width="28" height="2" rx="1" fill="#6366F1" fill-opacity="0.85"/>
+  <text x="36" y="200" font-size="9.5" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" fill-opacity="0.8" letter-spacing="0.6">FOLLOWING 0 · PULL REQUESTS 41 · ISSUES 0 · REVIEWS 0 · 2025: 8 CONTRIBUTIONS</text>
+  <text x="36" y="236" font-size="10.5" fill="#E5E7EB" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="600" letter-spacing="1.8">LANGUAGE MIX</text>
+  <text x="964" y="236" font-size="8.5" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" text-anchor="end" fill-opacity="0.65" letter-spacing="0.8">BY BYTES · ORIGINAL REPOSITORIES</text>
+  <g clip-path="url(#barClip)">
+    <rect x="36.00" y="252" width="480.45" height="12" fill="#6366F1"/>
+    <rect x="516.45" y="252" width="354.62" height="12" fill="#4C2A8A"/>
+    <rect x="871.07" y="252" width="36.74" height="12" fill="#22D3EE"/>
+    <rect x="907.81" y="252" width="22.79" height="12" fill="#8B5CF6"/>
+    <rect x="930.61" y="252" width="33.39" height="12" fill="#4C2A8A"/>
+  </g>
+  <circle cx="36" cy="286" r="3.2" fill="#6366F1"/>
+  <text x="46" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Jupyter Notebook  52%</text>
+  <circle cx="221" cy="286" r="3.2" fill="#4C2A8A"/>
+  <text x="231" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">TypeScript  38%</text>
+  <circle cx="406" cy="286" r="3.2" fill="#22D3EE"/>
+  <text x="416" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">C++  4%</text>
+  <circle cx="591" cy="286" r="3.2" fill="#8B5CF6"/>
+  <text x="601" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">JavaScript  2%</text>
+  <circle cx="776" cy="286" r="3.2" fill="#4C2A8A"/>
+  <text x="786" y="290" font-size="10" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Other  4%</text>
+  <text x="36" y="334" font-size="9" fill="#9294A5" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" fill-opacity="0.55" letter-spacing="0.6">PUBLIC DATA ONLY · PRIVATE CONTRIBUTIONS NOT INCLUDED</text>
+</svg>
