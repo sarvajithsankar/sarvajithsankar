@@ -73,9 +73,9 @@ application security · LLM security · prompt injection · API security · secu
 ### Recent public activity
 
 <!-- ACTIVITY:START -->
+- **Nov 11** — Pushed to main in [sarvajithsankar](https://github.com/sarvajithsankar/sarvajithsankar)
 - **Nov 11** — Pushed to feature/light-theme-portfolio-redesign in [sarvajithsankar.github.io](https://github.com/sarvajithsankar/sarvajithsankar.github.io)
 - **Nov 11** — Created branch revert\-4\-design/motion\-dark in [sarvajithsankar](https://github.com/sarvajithsankar/sarvajithsankar)
-- **Nov 11** — Pushed to design/motion-dark in [sarvajithsankar](https://github.com/sarvajithsankar/sarvajithsankar)
 - **Nov 11** — Merged PR #7 in [sarvajithsankar.github.io](https://github.com/sarvajithsankar/sarvajithsankar.github.io)
 - **Nov 11** — Merged PR #5 in [sarvajithsankar](https://github.com/sarvajithsankar/sarvajithsankar)
 - **Nov 06** — Pushed to main in [neetcode-submissions](https://github.com/sarvajithsankar/neetcode-submissions)
