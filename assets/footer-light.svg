@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="96" viewBox="0 0 1000 96" role="img" aria-labelledby="footerTitle">
+  <title id="footerTitle">Sarvajith Sankar — AI/ML, India, learning by building</title>
+
+  <defs>
+    <linearGradient id="footerRule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#059669" stop-opacity="0"/>
+      <stop offset="0.28" stop-color="#059669" stop-opacity="0.6"/>
+      <stop offset="0.5" stop-color="#0891B2" stop-opacity="0.65"/>
+      <stop offset="0.72" stop-color="#7C3AED" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#7C3AED" stop-opacity="0"/>
+    </linearGradient>
+    <style>
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+      .dot { animation: pulse 5s ease-in-out infinite; }
+      @keyframes pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) { .dot { animation: none !important; } }
+    </style>
+  </defs>
+
+  <line x1="80" y1="14" x2="920" y2="14" stroke="url(#footerRule)" stroke-width="1"/>
+  <path d="M 80 14 L 92 14 M 80 14 L 80 26" stroke="#059669" stroke-opacity="0.55" stroke-width="1" fill="none"/>
+  <path d="M 920 14 L 908 14 M 920 14 L 920 26" stroke="#7C3AED" stroke-opacity="0.45" stroke-width="1" fill="none"/>
+
+  <rect x="496" y="10" width="8" height="8" rx="1" transform="rotate(45 500 14)" fill="#059669" class="dot"/>
+
+  <text x="500" y="50" text-anchor="middle" class="mono" font-size="11" letter-spacing="3.8" fill="#475569">SARVAJITH SANKAR</text>
+  <text x="500" y="70" text-anchor="middle" class="mono" font-size="8.5" letter-spacing="2.4" fill="#64748B">AI/ML · INDIA · LEARNING BY BUILDING</text>
+</svg>

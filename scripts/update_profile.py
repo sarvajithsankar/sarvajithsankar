@@ -12,9 +12,13 @@ GraphQL contributionsCollection for the current and previous calendar years.
 
 Outputs
 -------
-assets/activity.svg             statistics and language mix
-assets/contribution-graph.svg   contribution heatmap
+assets/activity.svg             dark statistics and language mix
+assets/activity-light.svg       light statistics and language mix
+assets/contribution-graph.svg   dark contribution heatmap
+assets/contribution-graph-light.svg
+                                light contribution heatmap
 README.md                       recent public activity between the ACTIVITY markers
+                                and a mobile-readable summary between the STATS markers
 
 A failed API call skips only the data it provides. Existing SVGs are left in
 place rather than being replaced with empty placeholders.
@@ -38,7 +42,9 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 ASSETS = ROOT / "assets"
 ACTIVITY_SVG = ASSETS / "activity.svg"
+ACTIVITY_LIGHT_SVG = ASSETS / "activity-light.svg"
 HEATMAP_SVG = ASSETS / "contribution-graph.svg"
+HEATMAP_LIGHT_SVG = ASSETS / "contribution-graph-light.svg"
 
 USER = os.environ.get("PROFILE_USER", "sarvajithsankar")
 TOKEN = (
@@ -53,17 +59,6 @@ NOW = datetime.now(timezone.utc)
 TODAY = NOW.date()
 YEAR = TODAY.year
 
-BG = "#080810"
-PANEL = "#0B1020"
-LINE = "#24134A"
-INK = "#E5E7EB"
-MUTED = "#9294A5"
-VIOLET = "#8B5CF6"
-INDIGO = "#6366F1"
-CYAN = "#22D3EE"
-LAVENDER = "#A78BFA"
-DEEP = "#4C2A8A"
-HEAT = ["#15102E", "#24134A", "#4C2A8A", "#7C3AED", "#A78BFA"]
 FONT_MONO = (
     "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace"
 )
@@ -71,19 +66,65 @@ FONT_SANS = (
     "ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
 )
 
-LANG_COLORS = {
-    "Python": VIOLET,
-    "Jupyter Notebook": INDIGO,
-    "C++": CYAN,
-    "Java": LAVENDER,
-    "TypeScript": DEEP,
-    "JavaScript": VIOLET,
-    "CSS": CYAN,
-    "HTML": INDIGO,
-    "C": LAVENDER,
-    "Batchfile": DEEP,
+THEMES = {
+    "dark": {
+        "BG": "#080B14",
+        "PANEL": "#0A0E1A",
+        "LINE": "#1E293B",
+        "INK": "#F1F5F9",
+        "MUTED": "#94A3B8",
+        "DIM": "#64748B",
+        "GREEN": "#00FFA3",
+        "CYAN": "#00D9FF",
+        "INDIGO": "#6366F1",
+        "VIOLET": "#A855F7",
+        "HEAT": ["#10202B", "#0C3B33", "#0C5C47", "#00A87A", "#00FFA3"],
+    },
+    "light": {
+        "BG": "#F8FAFC",
+        "PANEL": "#FFFFFF",
+        "LINE": "#E2E8F0",
+        "INK": "#0F172A",
+        "MUTED": "#475569",
+        "DIM": "#64748B",
+        "GREEN": "#059669",
+        "CYAN": "#0891B2",
+        "INDIGO": "#4F46E5",
+        "VIOLET": "#7C3AED",
+        "HEAT": ["#EAF5F0", "#C9EBDE", "#8FD9BE", "#3FB98D", "#059669"],
+    },
 }
-FALLBACK_LANG_COLORS = [VIOLET, INDIGO, CYAN, LAVENDER, DEEP]
+
+LANG_COLORS = {
+    "dark": {
+        "Python": "#00FFA3",
+        "Jupyter Notebook": "#00D9FF",
+        "TypeScript": "#6366F1",
+        "C++": "#A855F7",
+        "Java": "#38BDF8",
+        "JavaScript": "#00FFA3",
+        "CSS": "#00D9FF",
+        "HTML": "#6366F1",
+        "C": "#A855F7",
+        "Batchfile": "#64748B",
+    },
+    "light": {
+        "Python": "#059669",
+        "Jupyter Notebook": "#0891B2",
+        "TypeScript": "#4F46E5",
+        "C++": "#7C3AED",
+        "Java": "#0EA5E9",
+        "JavaScript": "#059669",
+        "CSS": "#0891B2",
+        "HTML": "#4F46E5",
+        "C": "#7C3AED",
+        "Batchfile": "#64748B",
+    },
+}
+FALLBACK_LANG_COLORS = {
+    "dark": ["#00FFA3", "#00D9FF", "#6366F1", "#A855F7", "#64748B"],
+    "light": ["#059669", "#0891B2", "#4F46E5", "#7C3AED", "#64748B"],
+}
 
 CONTRIB_QUERY = """
 query($login: String!, $from: DateTime!, $to: DateTime!, $prevFrom: DateTime!, $prevTo: DateTime!) {
@@ -322,13 +363,37 @@ def language_mix(languages: Counter) -> list[tuple[str, float, int]]:
     return [(name, count / total * 100, count) for name, count in parts]
 
 
+def take_theme(theme_name: str) -> dict:
+    theme = dict(THEMES[theme_name])
+    theme["LANG"] = LANG_COLORS[theme_name]
+    theme["FALLBACK"] = FALLBACK_LANG_COLORS[theme_name]
+    return theme
+
+
 def build_activity_svg(
     profile: dict | None,
     repos: list[dict],
     languages: Counter,
     current: dict | None,
     previous: dict | None,
+    theme_name: str = "dark",
 ) -> str:
+    theme = take_theme(theme_name)
+    BG, PANEL, LINE, INK, MUTED = (
+        theme["BG"],
+        theme["PANEL"],
+        theme["LINE"],
+        theme["INK"],
+        theme["MUTED"],
+    )
+    GREEN, CYAN, INDIGO, VIOLET = (
+        theme["GREEN"],
+        theme["CYAN"],
+        theme["INDIGO"],
+        theme["VIOLET"],
+    )
+    lang_colors, fallback_colors = theme["LANG"], theme["FALLBACK"]
+
     width, height = 1000, 360
     repo_count = profile.get("public_repos") if profile else (len(repos) or None)
     followers = profile.get("followers") if profile else None
@@ -345,20 +410,27 @@ def build_activity_svg(
     current_streak, longest_streak = compute_streaks(calendar_days(current)) if current else (None, None)
 
     tiles = [
-        (fmt_number(repo_count), "PUBLIC REPOS", VIOLET),
+        (fmt_number(repo_count), "PUBLIC REPOS", GREEN),
         (fmt_number(followers), "FOLLOWERS", INDIGO),
         (fmt_number(current_total), f"CONTRIBUTIONS {YEAR}", CYAN),
-        (f"{current_streak}d" if current_streak is not None else "—", "CURRENT STREAK", LAVENDER),
-        (f"{longest_streak}d" if longest_streak is not None else "—", "LONGEST STREAK", VIOLET),
+        (f"{current_streak}d" if current_streak else "—", "CURRENT STREAK", VIOLET),
+        (f"{longest_streak}d" if longest_streak else "—", "LONGEST STREAK", GREEN),
         (fmt_number(commits), f"COMMITS {YEAR}", INDIGO),
     ]
 
     if current:
-        subline = (
-            f"FOLLOWING {fmt_number(following)} · PULL REQUESTS {fmt_number(pulls)} · "
-            f"ISSUES {fmt_number(issues)} · REVIEWS {fmt_number(reviews)} · "
-            f"{YEAR - 1}: {fmt_number(previous_total)} CONTRIBUTIONS"
-        )
+        metrics: list[str] = []
+        if following:
+            metrics.append(f"FOLLOWING {fmt_number(following)}")
+        if pulls:
+            metrics.append(f"PULL REQUESTS {fmt_number(pulls)}")
+        if issues:
+            metrics.append(f"ISSUES {fmt_number(issues)}")
+        if reviews:
+            metrics.append(f"REVIEWS {fmt_number(reviews)}")
+        if previous_total:
+            metrics.append(f"{YEAR - 1}: {fmt_number(previous_total)} CONTRIBUTIONS")
+        subline = " · ".join(metrics) if metrics else "PUBLIC REPOSITORY STATS · UPDATED BY ACTIONS"
     else:
         subline = "CONTRIBUTION DATA UNAVAILABLE — THE WORKFLOW WILL RETRY ON THE NEXT RUN"
 
@@ -374,25 +446,25 @@ def build_activity_svg(
         f'  <desc id="activityDesc">Repository count, followers, contributions, streaks, commits, pull requests, issues, reviews, and most-used languages from public GitHub data.</desc>',
         "  <defs>",
         '    <radialGradient id="panelGlow" cx="0.5" cy="0.5" r="0.5">',
-        '      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.16"/>',
-        '      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>',
-        '    </radialGradient>',
+        f'      <stop offset="0" stop-color="{GREEN}" stop-opacity="0.12"/>',
+        f'      <stop offset="1" stop-color="{GREEN}" stop-opacity="0"/>',
+        "    </radialGradient>",
         '    <linearGradient id="topRule" x1="0" y1="0" x2="1" y2="0">',
-        '      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0"/>',
-        '      <stop offset="0.3" stop-color="#8B5CF6" stop-opacity="0.7"/>',
-        '      <stop offset="0.7" stop-color="#22D3EE" stop-opacity="0.5"/>',
-        '      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>',
-        '    </linearGradient>',
+        f'      <stop offset="0" stop-color="{GREEN}" stop-opacity="0"/>',
+        f'      <stop offset="0.3" stop-color="{GREEN}" stop-opacity="0.8"/>',
+        f'      <stop offset="0.7" stop-color="{CYAN}" stop-opacity="0.55"/>',
+        f'      <stop offset="1" stop-color="{CYAN}" stop-opacity="0"/>',
+        "    </linearGradient>",
         '    <clipPath id="barClip">',
         '      <rect x="36" y="252" width="928" height="12" rx="6"/>',
-        '    </clipPath>',
+        "    </clipPath>",
         "  </defs>",
         f'  <rect width="{width}" height="{height}" rx="14" fill="{BG}" stroke="{LINE}" stroke-width="1"/>',
         "  <ellipse cx=\"830\" cy=\"58\" rx=\"300\" ry=\"170\" fill=\"url(#panelGlow)\"/>",
         '  <line x1="24" y1="1" x2="976" y2="1" stroke="url(#topRule)" stroke-width="2"/>',
         svg_text(36, 44, "ACTIVITY & CONTRIBUTIONS", size=12, fill=INK, weight=600, family=FONT_MONO, letter_spacing=2.2),
         svg_text(36, 64, "PUBLIC GITHUB DATA · REFRESHED BY ACTIONS", size=9, fill=MUTED, family=FONT_MONO, opacity=0.7, letter_spacing=1.2),
-        svg_text(964, 44, str(YEAR), size=12, fill=VIOLET, anchor="end", family=FONT_MONO, letter_spacing=2),
+        svg_text(964, 44, str(YEAR), size=12, fill=GREEN, anchor="end", family=FONT_MONO, letter_spacing=2),
     ]
 
     tile_width = 144
@@ -430,7 +502,7 @@ def build_activity_svg(
                 segment_width = 964 - x_cursor
             else:
                 segment_width = bar_width * pct / 100
-            color = LANG_COLORS.get(name, FALLBACK_LANG_COLORS[index % len(FALLBACK_LANG_COLORS)])
+            color = lang_colors.get(name, fallback_colors[index % len(fallback_colors)])
             parts.append(
                 f'    <rect x="{x_cursor:.2f}" y="252" width="{segment_width:.2f}" height="12" fill="{color}"/>'
             )
@@ -439,7 +511,7 @@ def build_activity_svg(
 
         for index, (name, pct, _count) in enumerate(mix):
             x = 36 + index * 185
-            color = LANG_COLORS.get(name, FALLBACK_LANG_COLORS[index % len(FALLBACK_LANG_COLORS)])
+            color = lang_colors.get(name, fallback_colors[index % len(fallback_colors)])
             parts.append(f'  <circle cx="{x}" cy="286" r="3.2" fill="{color}"/>')
             label = name if len(name) <= 17 else name[:16] + "…"
             parts.append(svg_text(x + 10, 290, f"{label}  {pct:.0f}%", size=10, fill=MUTED, family=FONT_MONO))
@@ -461,7 +533,19 @@ def heat_level(count: int) -> int:
     return 4
 
 
-def build_heatmap_svg(current: dict, previous: dict | None) -> str:
+def build_heatmap_svg(current: dict, previous: dict | None, theme_name: str = "dark") -> str:
+    theme = take_theme(theme_name)
+    BG, PANEL, LINE, INK, MUTED = (
+        theme["BG"],
+        theme["PANEL"],
+        theme["LINE"],
+        theme["INK"],
+        theme["MUTED"],
+    )
+    GREEN, CYAN, VIOLET = theme["GREEN"], theme["CYAN"], theme["VIOLET"]
+    HEAT = theme["HEAT"]
+    scale_label = "emerald" if theme_name == "light" else "green"
+
     width, height = 1000, 230
     calendar = current.get("contributionCalendar", {})
     weeks = calendar.get("weeks", [])
@@ -487,18 +571,18 @@ def build_heatmap_svg(current: dict, previous: dict | None) -> str:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="heatTitle heatDesc">',
         f'  <title id="heatTitle">Contribution calendar for {YEAR}</title>',
-        f'  <desc id="heatDesc">{escape(str(total))} contributions in {YEAR}, shown as a dark calendar with a violet intensity scale.</desc>',
+        f'  <desc id="heatDesc">{escape(str(total))} contributions in {YEAR}, shown on a {scale_label} intensity scale.</desc>',
         "  <defs>",
         '    <linearGradient id="heatRule" x1="0" y1="0" x2="1" y2="0">',
-        '      <stop offset="0" stop-color="#8B5CF6" stop-opacity="0.7"/>',
-        '      <stop offset="0.65" stop-color="#6366F1" stop-opacity="0.35"/>',
-        '      <stop offset="1" stop-color="#22D3EE" stop-opacity="0.45"/>',
+        f'      <stop offset="0" stop-color="{GREEN}" stop-opacity="0.8"/>',
+        f'      <stop offset="0.65" stop-color="{CYAN}" stop-opacity="0.4"/>',
+        f'      <stop offset="1" stop-color="{VIOLET}" stop-opacity="0.5"/>',
         '    </linearGradient>',
         "  </defs>",
         f'  <rect width="{width}" height="{height}" rx="14" fill="{BG}" stroke="{LINE}" stroke-width="1"/>',
         '  <line x1="24" y1="1" x2="976" y2="1" stroke="url(#heatRule)" stroke-width="2"/>',
         svg_text(36, 38, f"CONTRIBUTION CALENDAR · {YEAR}", size=12, fill=INK, weight=600, family=FONT_MONO, letter_spacing=2.2),
-        svg_text(964, 38, f"{fmt_number(total)} CONTRIBUTIONS", size=10, fill=VIOLET, anchor="end", family=FONT_MONO, letter_spacing=1.4),
+        svg_text(964, 38, f"{fmt_number(total)} CONTRIBUTIONS", size=10, fill=GREEN, anchor="end", family=FONT_MONO, letter_spacing=1.4),
     ]
 
     if not weeks:
@@ -564,7 +648,9 @@ def build_heatmap_svg(current: dict, previous: dict | None) -> str:
     return "\n".join(parts) + "\n"
 
 
-def build_heatmap_placeholder() -> str:
+def build_heatmap_placeholder(theme_name: str = "dark") -> str:
+    theme = take_theme(theme_name)
+    BG, LINE, INK, MUTED = theme["BG"], theme["LINE"], theme["INK"], theme["MUTED"]
     return "\n".join(
         [
             '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="230" viewBox="0 0 1000 230" role="img" aria-labelledby="heatTitle">',
@@ -590,7 +676,7 @@ ISSUE_ACTIONS = {
     "reopened": "Reopened",
     "edited": "Edited",
 }
-MD_SPECIAL = re.compile(r"([\\`*_{}\[\]()#+\-.!|<>])")
+MD_SPECIAL = re.compile(r"([\\`*_{}\[\]()#+.!|<>])")
 
 
 def md_text(value) -> str:
@@ -657,12 +743,12 @@ def format_event(event: dict) -> str | None:
 
 def render_activity_block(events: list[dict], repos: list[dict]) -> str:
     lines: list[str] = []
-    seen: set[tuple] = set()
+    seen: set[str] = set()
     for event in events:
         line = format_event(event)
         if not line:
             continue
-        key = (event.get("type"), event.get("repo", {}).get("name"))
+        key = event.get("repo", {}).get("name")
         if key in seen:
             continue
         seen.add(key)
@@ -686,18 +772,64 @@ def render_activity_block(events: list[dict], repos: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def update_readme(block: str) -> bool:
+def build_stats_block(
+    profile: dict | None,
+    current: dict | None,
+) -> str:
+    items: list[str] = []
+    if profile and profile.get("public_repos") is not None:
+        items.append(f"**{fmt_number(profile['public_repos'])}** public repos")
+    if current:
+        total = current.get("contributionCalendar", {}).get("totalContributions")
+        if total is not None:
+            items.append(f"**{fmt_number(total)}** contributions in {YEAR}")
+        current_streak, longest_streak = compute_streaks(calendar_days(current))
+        if current_streak > 0:
+            items.append(f"**{current_streak}d** current streak")
+        items.append(f"**{longest_streak}d** longest")
+    if profile and profile.get("followers") is not None:
+        followers = profile["followers"]
+        if followers > 1:
+            items.append(f"**{fmt_number(followers)}** followers")
+    if not items:
+        return ""
+    return "<sub>" + " · ".join(items) + " · live from public GitHub data</sub>"
+
+
+def replace_block(text: str, start: str, end: str, body: str) -> tuple[str, bool]:
+    pattern = re.compile(re.escape(start) + r"(.*?)" + re.escape(end), re.S)
+    if not pattern.search(text):
+        return text, False
+    replacement = f"{start}\n{body}\n{end}"
+    return pattern.sub(lambda _match: replacement, text, count=1), True
+
+
+def update_readme(activity_block: str, stats_block: str) -> bool:
     if not README.exists():
         warn(f"README not found at {README}")
         return False
     text = README.read_text(encoding="utf-8")
-    pattern = re.compile(r"(<!-- ACTIVITY:START -->)(.*?)(<!-- ACTIVITY:END -->)", re.S)
-    if not pattern.search(text):
-        warn("README activity markers were not found; skipping the activity block update.")
-        return False
-    replacement = f"<!-- ACTIVITY:START -->\n{block}\n<!-- ACTIVITY:END -->"
-    updated = pattern.sub(lambda _match: replacement, text, count=1)
-    return write_if_changed(README, updated)
+    changed = False
+
+    if activity_block:
+        text, replaced = replace_block(
+            text, "<!-- ACTIVITY:START -->", "<!-- ACTIVITY:END -->", activity_block
+        )
+        if replaced:
+            changed = True
+        else:
+            warn("README activity markers were not found; skipping the activity block update.")
+
+    if stats_block:
+        text, replaced = replace_block(
+            text, "<!-- STATS:START -->", "<!-- STATS:END -->", stats_block
+        )
+        if replaced:
+            changed = True
+        else:
+            warn("README stats markers were not found; skipping the stats summary update.")
+
+    return write_if_changed(README, text) if changed else False
 
 
 def write_if_changed(path: Path, content: str) -> bool:
@@ -734,25 +866,28 @@ def main() -> int:
 
     changed: list[str] = []
 
-    if current is not None or not ACTIVITY_SVG.exists():
-        activity = build_activity_svg(profile, repos, languages, current, previous)
-        if write_if_changed(ACTIVITY_SVG, activity):
-            changed.append(str(ACTIVITY_SVG.relative_to(ROOT)))
-    else:
-        warn("Contribution data unavailable; keeping the existing activity dashboard.")
+    for theme_name, path in (("dark", ACTIVITY_SVG), ("light", ACTIVITY_LIGHT_SVG)):
+        if current is not None or not path.exists():
+            activity = build_activity_svg(profile, repos, languages, current, previous, theme_name)
+            if write_if_changed(path, activity):
+                changed.append(str(path.relative_to(ROOT)))
+        else:
+            warn(f"Contribution data unavailable; keeping the existing {theme_name} activity dashboard.")
 
-    if current is not None:
-        heatmap = build_heatmap_svg(current, previous)
-        if write_if_changed(HEATMAP_SVG, heatmap):
-            changed.append(str(HEATMAP_SVG.relative_to(ROOT)))
-    elif not HEATMAP_SVG.exists():
-        if write_if_changed(HEATMAP_SVG, build_heatmap_placeholder()):
-            changed.append(str(HEATMAP_SVG.relative_to(ROOT)))
-    else:
-        warn("Contribution data unavailable; keeping the existing heatmap.")
+    for theme_name, path in (("dark", HEATMAP_SVG), ("light", HEATMAP_LIGHT_SVG)):
+        if current is not None:
+            heatmap = build_heatmap_svg(current, previous, theme_name)
+            if write_if_changed(path, heatmap):
+                changed.append(str(path.relative_to(ROOT)))
+        elif not path.exists():
+            if write_if_changed(path, build_heatmap_placeholder(theme_name)):
+                changed.append(str(path.relative_to(ROOT)))
+        else:
+            warn(f"Contribution data unavailable; keeping the existing {theme_name} heatmap.")
 
+    stats_block = build_stats_block(profile, current)
     if events is not None:
-        if update_readme(render_activity_block(events, repos)):
+        if update_readme(render_activity_block(events, repos), stats_block):
             changed.append("README.md")
     else:
         warn("Events data unavailable; keeping the existing recent-activity block.")
