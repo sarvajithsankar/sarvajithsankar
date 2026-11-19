@@ -50,11 +50,11 @@
   <text x="36" y="236" font-size="10.5" fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="600" letter-spacing="1.8">LANGUAGE MIX</text>
   <text x="964" y="236" font-size="8.5" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" text-anchor="end" fill-opacity="0.65" letter-spacing="0.8">BY BYTES · ORIGINAL REPOSITORIES</text>
   <g clip-path="url(#barClip)">
-    <rect x="36.00" y="252" width="328.16" height="12" fill="#0891B2"/>
-    <rect x="364.16" y="252" width="179.60" height="12" fill="#059669"/>
-    <rect x="543.75" y="252" width="175.02" height="12" fill="#0891B2"/>
-    <rect x="718.78" y="252" width="111.04" height="12" fill="#4F46E5"/>
-    <rect x="829.82" y="252" width="134.18" height="12" fill="#64748B"/>
+    <rect x="36.00" y="252" width="324.02" height="12" fill="#0891B2"/>
+    <rect x="360.02" y="252" width="177.33" height="12" fill="#059669"/>
+    <rect x="537.36" y="252" width="172.82" height="12" fill="#0891B2"/>
+    <rect x="710.18" y="252" width="109.64" height="12" fill="#4F46E5"/>
+    <rect x="819.82" y="252" width="144.18" height="12" fill="#64748B"/>
   </g>
   <circle cx="36" cy="286" r="3.2" fill="#0891B2"/>
   <text x="46" y="290" font-size="10" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Jupyter Notebook  35%</text>
@@ -65,6 +65,6 @@
   <circle cx="591" cy="286" r="3.2" fill="#4F46E5"/>
   <text x="601" y="290" font-size="10" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">HTML  12%</text>
   <circle cx="776" cy="286" r="3.2" fill="#64748B"/>
-  <text x="786" y="290" font-size="10" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Other  14%</text>
+  <text x="786" y="290" font-size="10" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">Other  16%</text>
   <text x="36" y="334" font-size="9" fill="#475569" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" fill-opacity="0.55" letter-spacing="0.6">PUBLIC DATA ONLY · PRIVATE CONTRIBUTIONS NOT INCLUDED</text>
 </svg>
