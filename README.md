@@ -93,7 +93,7 @@ sarvajith@learning:~$ cat currently_exploring.txt
 ## 04 · Activity
 
 <!-- STATS:START -->
-<sub>**14** public repos · **177** contributions in 2026 · **3d** longest · live from public GitHub data</sub>
+<sub>**14** public repos · **179** contributions in 2026 · **1d** current streak · **3d** longest · live from public GitHub data</sub>
 <!-- STATS:END -->
 
 <p align="center">
@@ -115,7 +115,7 @@ sarvajith@learning:~$ cat currently_exploring.txt
 **Recent public activity**
 
 <!-- ACTIVITY:START -->
-- **Nov 11** — Pushed to main in [sarvajithsankar](https://github.com/sarvajithsankar/sarvajithsankar)
+- **Nov 19** — Merged PR #6 in [sarvajithsankar](https://github.com/sarvajithsankar/sarvajithsankar)
 - **Nov 11** — Pushed to feature/light-theme-portfolio-redesign in [sarvajithsankar.github.io](https://github.com/sarvajithsankar/sarvajithsankar.github.io)
 - **Nov 06** — Pushed to main in [neetcode-submissions](https://github.com/sarvajithsankar/neetcode-submissions)
 - **Oct 29** — Pushed to main in [TENET-AI](https://github.com/sarvajithsankar/TENET-AI)
