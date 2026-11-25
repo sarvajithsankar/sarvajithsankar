@@ -120,7 +120,6 @@ sarvajith@learning:~$ cat currently_exploring.txt
 - **Nov 06** — Pushed to main in [neetcode-submissions](https://github.com/sarvajithsankar/neetcode-submissions)
 - **Oct 29** — Pushed to main in [TENET-AI](https://github.com/sarvajithsankar/TENET-AI)
 - **Oct 26** — Pushed to main in [schema_matching](https://github.com/sarvajithsankar/schema_matching)
-- **Oct 25** — Pushed to main in [Wafer_Anomaly_Detector](https://github.com/sarvajithsankar/Wafer_Anomaly_Detector)
 
 <sub>Recently updated: [sarvajithsankar.github.io](https://github.com/sarvajithsankar/sarvajithsankar.github.io) · Nov 11 · [neetcode-submissions](https://github.com/sarvajithsankar/neetcode-submissions) · Nov 06 · [TENET-AI](https://github.com/sarvajithsankar/TENET-AI) · Oct 29 · [schema_matching](https://github.com/sarvajithsankar/schema_matching) · Oct 26</sub>
 <!-- ACTIVITY:END -->
