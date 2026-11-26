@@ -119,7 +119,6 @@ sarvajith@learning:~$ cat currently_exploring.txt
 - **Nov 11** — Pushed to feature/light-theme-portfolio-redesign in [sarvajithsankar.github.io](https://github.com/sarvajithsankar/sarvajithsankar.github.io)
 - **Nov 06** — Pushed to main in [neetcode-submissions](https://github.com/sarvajithsankar/neetcode-submissions)
 - **Oct 29** — Pushed to main in [TENET-AI](https://github.com/sarvajithsankar/TENET-AI)
-- **Oct 26** — Pushed to main in [schema_matching](https://github.com/sarvajithsankar/schema_matching)
 
 <sub>Recently updated: [sarvajithsankar.github.io](https://github.com/sarvajithsankar/sarvajithsankar.github.io) · Nov 11 · [neetcode-submissions](https://github.com/sarvajithsankar/neetcode-submissions) · Nov 06 · [TENET-AI](https://github.com/sarvajithsankar/TENET-AI) · Oct 29 · [schema_matching](https://github.com/sarvajithsankar/schema_matching) · Oct 26</sub>
 <!-- ACTIVITY:END -->
