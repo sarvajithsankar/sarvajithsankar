@@ -357,7 +357,7 @@
   <rect x="867" y="102" width="14" height="14" rx="3" fill="#10202B" fill-opacity="1"/>
   <rect x="867" y="119" width="14" height="14" rx="3" fill="#10202B" fill-opacity="1"/>
   <rect x="867" y="136" width="14" height="14" rx="3" fill="#10202B" fill-opacity="1"/>
-  <rect x="867" y="153" width="14" height="14" rx="3" fill="#0A0E1A" fill-opacity="0.42"/>
+  <rect x="867" y="153" width="14" height="14" rx="3" fill="#10202B" fill-opacity="1"/>
   <rect x="867" y="170" width="14" height="14" rx="3" fill="#0A0E1A" fill-opacity="0.42"/>
   <text x="884" y="58" font-size="9.5" fill="#94A3B8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" fill-opacity="0.8">Dec</text>
   <rect x="884" y="68" width="14" height="14" rx="3" fill="#0A0E1A" fill-opacity="0.42"/>
